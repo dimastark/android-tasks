@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SuperApp</string>
+    <string name="create_button_text">Create new note</string>
+    <string name="title_input_label">Title</string>
+    <string name="description_input_label">Description</string>
+    <string name="save_button_text">Save</string>
+</resources>
