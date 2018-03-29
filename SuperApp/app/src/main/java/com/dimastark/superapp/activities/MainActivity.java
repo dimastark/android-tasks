@@ -1,8 +1,8 @@
 package com.dimastark.superapp.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -14,11 +14,8 @@ import com.dimastark.superapp.models.Note;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public static final int DEFAULT_ID = -1;
     public static final String STATE_NOTES = "notes";
-    public static final String ID = "id";
-    public static final String TITLE = "title";
-    public static final String DESCRIPTION = "description";
+    public static final int DEFAULT_ID = -1;
 
     private ArrayList<Note> notes = new ArrayList<>();
 
@@ -33,12 +30,13 @@ public class MainActivity extends AppCompatActivity {
     class UpdateNoteListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            Note note  = (Note) adapterView.getItemAtPosition(i);
             Intent intent = new Intent(MainActivity.this, ItemActivity.class);
 
-            intent.putExtra(ID, i);
-            intent.putExtra(TITLE, note.getTitle());
-            intent.putExtra(DESCRIPTION, note.getDescription());
+            Note note  = (Note) adapterView.getItemAtPosition(i);
+
+            intent.putExtra(Note.ID, i);
+            intent.putExtra(Note.TITLE, note.getTitle());
+            intent.putExtra(Note.DESCRIPTION, note.getDescription());
 
             MainActivity.this.startActivity(intent);
         }
@@ -82,9 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
     void checkCreateOrUpdateNote(Bundle bundle) {
         if (bundle != null) {
-            int id = bundle.getInt(ID, DEFAULT_ID);
-            String title = bundle.getString(TITLE);
-            String description = bundle.getString(DESCRIPTION);
+            int id = bundle.getInt(Note.ID, DEFAULT_ID);
+
+            String title = bundle.getString(Note.TITLE);
+            String description = bundle.getString(Note.DESCRIPTION);
 
             if (id != DEFAULT_ID) {
                 Note note = notes.get(id);

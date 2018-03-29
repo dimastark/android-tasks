@@ -8,23 +8,24 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.dimastark.superapp.R;
+import com.dimastark.superapp.models.Note;
 
 public class ItemActivity extends AppCompatActivity {
     class CreateNoteListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            TextView title = findViewById(R.id.titleInput);
-            TextView description = findViewById(R.id.descriptionInput);
-
-            Intent intent = new Intent(ItemActivity.this, MainActivity.class);
             Bundle bundle = getIntent().getExtras();
+            Intent intent = new Intent(ItemActivity.this, MainActivity.class);
 
             if (bundle != null) {
-                intent.putExtra(MainActivity.ID, bundle.getInt(MainActivity.ID));
+                intent.putExtra(Note.ID, bundle.getInt(Note.ID));
             }
 
-            intent.putExtra(MainActivity.TITLE, title.getText().toString());
-            intent.putExtra(MainActivity.DESCRIPTION, description.getText().toString());
+            TextView title = findViewById(R.id.titleInput);
+            intent.putExtra(Note.TITLE, title.getText().toString());
+
+            TextView description = findViewById(R.id.descriptionInput);
+            intent.putExtra(Note.DESCRIPTION, description.getText().toString());
 
             startActivity(intent);
         }
@@ -36,14 +37,14 @@ public class ItemActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_item);
 
-        TextView title = findViewById(R.id.titleInput);
-        TextView description = findViewById(R.id.descriptionInput);
-
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null) {
-            title.setText(bundle.getString(MainActivity.TITLE));
-            description.setText(bundle.getString(MainActivity.DESCRIPTION));
+            TextView title = findViewById(R.id.titleInput);
+            title.setText(bundle.getString(Note.TITLE));
+
+            TextView description = findViewById(R.id.descriptionInput);
+            description.setText(bundle.getString(Note.DESCRIPTION));
         }
 
         Button saveButton = findViewById(R.id.saveButton);

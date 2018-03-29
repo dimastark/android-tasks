@@ -3,4 +3,59 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="pinkA400">#f50057</color>
+    <color name="redA700">#d50000</color>
+    <color name="orange700">#f57c00</color>
+    <color name="yellowA400">#ffea00</color>
+    <color name="lGreenA400">#76ff03</color>
+    <color name="lGreenA700">#64dd17</color>
+    <color name="greenA400">#00e676</color>
+    <color name="cyanA200">#18ffff</color>
+    <color name="lightBlueA700">#0091ea</color>
+    <color name="dPurpleA700">#6200ea</color>
+    <color name="purpleA400">#d500f9</color>
+    <color name="red600">#e53935</color>
+    <color name="pink400">#ec407a</color>
+    <color name="purple700">#7b1fa2</color>
+    <color name="dPurpleA400">#651fff</color>
+    <color name="indigoA700">#304ffe</color>
+    <color name="blueA700">#2962ff</color>
+    <color name="lBlueA700">#0091ea</color>
+    <color name="cyanA400">#00e5ff</color>
+    <color name="teal300">#4db6ac</color>
+    <color name="greenA700">#00c853</color>
+    <color name="limeA700">#aeea00</color>
+    <color name="amber600">#ffb300</color>
+    <color name="dOrange500">#ff5722</color>
+    <color name="grey500">#9e9e9e</color>
+    <color name="bGrey500">#607d8b</color>
+
+    <array name="favourite_colors">
+        <item>@color/redA700</item>
+        <item>@color/orange700</item>
+        <item>@color/yellowA400</item>
+        <item>@color/lGreenA400</item>
+        <item>@color/lGreenA700</item>
+        <item>@color/greenA400</item>
+        <item>@color/cyanA200</item>
+        <item>@color/lightBlueA700</item>
+        <item>@color/dPurpleA700</item>
+        <item>@color/purpleA400</item>
+        <item>@color/red600</item>
+        <item>@color/pink400</item>
+        <item>@color/purple700</item>
+        <item>@color/dPurpleA400</item>
+        <item>@color/indigoA700</item>
+        <item>@color/blueA700</item>
+        <item>@color/lBlueA700</item>
+        <item>@color/cyanA400</item>
+        <item>@color/teal300</item>
+        <item>@color/greenA700</item>
+        <item>@color/limeA700</item>
+        <item>@color/amber600</item>
+        <item>@color/dOrange500</item>
+        <item>@color/grey500</item>
+        <item>@color/bGrey500</item>
+    </array>
 </resources>

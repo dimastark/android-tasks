@@ -1,7 +1,9 @@
 package com.dimastark.superapp.models;
 
-import android.graphics.Color;
 import android.text.format.DateUtils;
+
+import com.dimastark.superapp.App;
+import com.dimastark.superapp.R;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -9,38 +11,36 @@ import java.util.Date;
 import java.util.Random;
 
 public class Note implements Serializable {
+    public static final String ID = "id";
+    public static final String TITLE = "title";
+    public static final String DESCRIPTION = "description";
+
     private static final Random random = new Random();
+    private static Color[] possibleColors;
     private static int nextColorIndex;
 
-    private static final int colorsCount;
-    private static final int[] allPossibleColors;
-
     static {
-        String[] allPossibleColorsInHex = new String[] {
-                "#e53935", "#ec407a", "#7b1fa2", "#651fff", "#304ffe", "#2962ff",
-                "#0091ea", "#00e5ff", "#4db6ac", "#00c853", "#64dd17", "#aeea00",
-                "#ffff00", "#ffb300", "#f57c00", "#ff5722", "#9e9e9e", "#607d8b",
-        };
+        int[] allColors = App
+                .getContext()
+                .getResources()
+                .getIntArray(R.array.favourite_colors);
+        possibleColors = new Color[allColors.length];
 
-        colorsCount = allPossibleColorsInHex.length;
-        allPossibleColors = new int[colorsCount];
-        nextColorIndex = random.nextInt(colorsCount);
-
-        for (int i = 0; i < colorsCount; i++) {
-            allPossibleColors[i] = Color.parseColor(allPossibleColorsInHex[i]);
+        for (int i = 0; i < allColors.length; i++) {
+            possibleColors[i] = new Color(allColors[i]);
         }
     }
 
     private String title;
     private String description;
     private Date createdAt;
-    private int color;
+    private Color color;
 
     public Note(String title, String description) {
         this.title = title;
         this.description = description;
         this.createdAt = Calendar.getInstance().getTime();
-        this.color = allPossibleColors[nextColorIndex];
+        this.color = possibleColors[nextColorIndex];
 
         updateColorIndex();
     }
@@ -72,15 +72,15 @@ public class Note implements Serializable {
                 DateUtils.SECOND_IN_MILLIS).toString();
     }
 
-    public int getColor() {
+    public Color getColor() {
         return color;
     }
 
     private static void updateColorIndex() {
-        int nextInt = random.nextInt(colorsCount);
+        int nextInt = random.nextInt(possibleColors.length);
 
         while (nextInt == nextColorIndex) {
-            nextInt = random.nextInt(colorsCount);
+            nextInt = random.nextInt(possibleColors.length);
         }
 
         nextColorIndex = nextInt;

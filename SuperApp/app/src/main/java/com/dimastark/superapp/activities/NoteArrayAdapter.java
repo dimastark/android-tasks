@@ -41,7 +41,7 @@ public class NoteArrayAdapter extends ArrayAdapter<Note> {
             title.setText(note.getTitle());
             createdAt.setText(note.getFormattedCreatedAt());
             description.setText(note.getDescription());
-            leftBorder.setBackgroundColor(note.getColor());
+            leftBorder.setBackgroundColor(note.getColor().toInt());
         }
     }
 
