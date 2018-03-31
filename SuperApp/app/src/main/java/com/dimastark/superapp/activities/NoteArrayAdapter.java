@@ -14,13 +14,11 @@ import com.dimastark.superapp.models.Note;
 import java.util.List;
 
 public class NoteArrayAdapter extends ArrayAdapter<Note> {
-    private final List<Note> notes;
     private final Activity context;
 
     NoteArrayAdapter(Activity context, List<Note> notes) {
         super(context, R.layout.note_list_item, notes);
 
-        this.notes = notes;
         this.context = context;
     }
 
@@ -41,7 +39,7 @@ public class NoteArrayAdapter extends ArrayAdapter<Note> {
             title.setText(note.getTitle());
             createdAt.setText(note.getFormattedCreatedAt());
             description.setText(note.getDescription());
-            leftBorder.setBackgroundColor(note.getColor().toInt());
+            leftBorder.setBackgroundColor(note.getColor().asInt());
         }
     }
 
@@ -59,7 +57,7 @@ public class NoteArrayAdapter extends ArrayAdapter<Note> {
         }
 
         ViewHolder holder = (ViewHolder) view.getTag();
-        holder.fill(notes.get(position));
+        holder.fill(getItem(position));
 
         return view;
     }

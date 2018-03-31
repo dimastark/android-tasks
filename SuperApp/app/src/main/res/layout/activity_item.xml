@@ -1,51 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/itemActivity"
+    android:id="@+id/activity_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true">
 
-    <TextView
-        android:id="@+id/titleInputLabel"
-        android:text="@string/title_input_label"
+    <ScrollView
+        android:id="@+id/fields"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:labelFor="@id/titleInput"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"/>
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/titleInput"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/titleInputLabel"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        android:inputType="text"/>
+            <TextView
+                android:id="@+id/title_input_label"
+                android:text="@string/title_input_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:labelFor="@id/title_input"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
 
-    <TextView
-        android:id="@+id/descriptionInputLabel"
-        android:text="@string/description_input_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/titleInput"
-        android:layout_marginTop="16dp"
-        android:labelFor="@id/descriptionInput"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"/>
+            <EditText
+                android:id="@+id/title_input"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/title_input_label"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:inputType="text" />
 
-    <EditText
-        android:id="@+id/descriptionInput"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/descriptionInputLabel"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        android:inputType="text"/>
+            <TextView
+                android:id="@+id/description_input_label"
+                android:text="@string/description_input_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_input"
+                android:layout_marginTop="16dp"
+                android:labelFor="@id/description_input"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
+
+            <EditText
+                android:id="@+id/description_input"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/description_input_label"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/color_label"
+                android:text="@string/color_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/description_input"
+                android:layout_marginTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
+
+            <include
+                layout="@layout/color_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/color_label"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"/>
+
+        </RelativeLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/saveButton"
@@ -54,6 +83,6 @@
         android:layout_alignParentBottom="true"
         android:background="#ffc400"
         android:text="@string/save_button_text"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
 </RelativeLayout>

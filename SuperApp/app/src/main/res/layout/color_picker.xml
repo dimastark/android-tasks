@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dimastark.superapp.colorpicker.ColorPicker
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/color_picker"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+    <com.dimastark.superapp.colorpicker.PaletteLayout
+        android:id="@+id/palette_layout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/gradient"
+            android:background="@drawable/hsv_inset"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+    </com.dimastark.superapp.colorpicker.PaletteLayout>
+
+    <GridView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/favorite_colors"
+        android:layout_below="@id/gradient"
+        android:columnWidth="50dp"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="0dp"
+        android:horizontalSpacing="0dp"
+        android:padding="16dp"
+        android:scrollbars="none"
+        android:layout_marginTop="140dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp" />
+
+</com.dimastark.superapp.colorpicker.ColorPicker>

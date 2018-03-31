@@ -9,12 +9,12 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.dimastark.superapp.R;
+import com.dimastark.superapp.models.Color;
 import com.dimastark.superapp.models.Note;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String STATE_NOTES = "notes";
     public static final int DEFAULT_ID = -1;
 
     private ArrayList<Note> notes = new ArrayList<>();
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(Note.ID, i);
             intent.putExtra(Note.TITLE, note.getTitle());
             intent.putExtra(Note.DESCRIPTION, note.getDescription());
+            intent.putExtra(Note.COLOR, note.getColor().asInt());
 
             MainActivity.this.startActivity(intent);
         }
@@ -63,36 +64,23 @@ public class MainActivity extends AppCompatActivity {
         checkCreateOrUpdateNote(intent.getExtras());
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putSerializable(STATE_NOTES, notes);
-
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        notes = (ArrayList<Note>) savedInstanceState.getSerializable(STATE_NOTES);
-    }
-
     void checkCreateOrUpdateNote(Bundle bundle) {
-        if (bundle != null) {
-            int id = bundle.getInt(Note.ID, DEFAULT_ID);
+        if (bundle == null)
+            return;
 
-            String title = bundle.getString(Note.TITLE);
-            String description = bundle.getString(Note.DESCRIPTION);
+        int id = bundle.getInt(Note.ID, DEFAULT_ID);
+        String title = bundle.getString(Note.TITLE);
+        String description = bundle.getString(Note.DESCRIPTION);
+        Color color = new Color(bundle.getInt(Note.COLOR));
 
-            if (id != DEFAULT_ID) {
-                Note note = notes.get(id);
+        if (id != DEFAULT_ID) {
+            Note note = notes.get(id);
 
-                note.setTitle(title);
-                note.setDescription(description);
-            } else {
-                notes.add(new Note(title, description));
-            }
+            note.setTitle(title);
+            note.setDescription(description);
+            note.setColor(color);
+        } else {
+            notes.add(new Note(title, description, color));
         }
     }
 }

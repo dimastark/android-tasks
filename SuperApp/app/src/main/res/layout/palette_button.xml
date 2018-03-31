@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dimastark.superapp.colorpicker.SelectColorButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/select_color_button"
+    android:background="@drawable/square"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="25dp"
+    android:minWidth="90dp"
+    android:minHeight="90dp" />
