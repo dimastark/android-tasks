@@ -3,7 +3,7 @@ package com.dimastark.superapp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.dimastark.superapp.App;
+import com.dimastark.superapp.application.App;
 import com.dimastark.superapp.R;
 
 public class Color implements Parcelable {

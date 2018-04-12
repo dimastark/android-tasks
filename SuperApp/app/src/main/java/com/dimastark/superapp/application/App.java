@@ -1,4 +1,4 @@
-package com.dimastark.superapp;
+package com.dimastark.superapp.application;
 
 import android.app.Application;
 

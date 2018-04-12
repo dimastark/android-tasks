@@ -42,8 +42,8 @@ public class SelectColorButton extends AppCompatButton implements Observer<Color
         this.selectedColor = selectedColor;
         this.editor = editor;
 
-        cell.getColor().addObserver(this);
-        onChange(cell.getColor().getValue());
+        cell.getColor().register(this);
+        update(cell.getColor().getValue());
 
         isConnected = true;
     }
@@ -62,7 +62,7 @@ public class SelectColorButton extends AppCompatButton implements Observer<Color
     }
 
     @Override
-    public void onChange(Color newValue) {
+    public void update(Color newValue) {
         setColor(newValue);
     }
 

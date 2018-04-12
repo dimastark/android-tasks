@@ -12,34 +12,11 @@ public class Observable<T> {
         observers = new ArrayList<>();
     }
 
-    @Override
-    public boolean equals(Object other) {
-        if (this == other)
-            return true;
-
-        if (other == null || getClass() != other.getClass())
-            return false;
-
-        Observable<?> o = (Observable<?>) other;
-
-        return value == null ? o.value == null : value.equals(o.value);
-    }
-
-    @Override
-    public int hashCode() {
-        return value == null ? 0 : value.hashCode();
-    }
-
-    private void notifyValueChanged() {
-        for (Observer<T> observer : observers)
-            observer.onChange(value);
-    }
-
-    public void addObserver(Observer<T> observer) {
+    public void register(Observer<T> observer) {
         this.observers.add(observer);
     }
 
-    public void removeObserver(Observer<T> observer) {
+    public void unregister(Observer<T> observer) {
         this.observers.remove(observer);
     }
 
@@ -51,5 +28,10 @@ public class Observable<T> {
         this.value = value;
 
         notifyValueChanged();
+    }
+
+    private void notifyValueChanged() {
+        for (Observer<T> observer : observers)
+            observer.update(value);
     }
 }

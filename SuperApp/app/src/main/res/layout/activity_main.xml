@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<com.dimastark.superapp.application.OptionsLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainActivityLayout"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dimastark.superapp.activities.MainActivity">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <ListView
-        android:id="@+id/notesList"
+    <FrameLayout android:id="@+id/fragment_container"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_above="@id/createButton"
-        android:divider="@android:color/transparent" />
-    
-    <Button
-        android:id="@+id/createButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:background="#ffc400"
-        android:text="@string/create_button_text"
-        android:textSize="16sp" />
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/activity_main_drawer" />
 
-</RelativeLayout>
+</com.dimastark.superapp.application.OptionsLayout>

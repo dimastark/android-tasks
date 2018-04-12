@@ -13,6 +13,7 @@ public class Note implements Parcelable {
     public static final String TITLE = "title";
     public static final String DESCRIPTION = "description";
     public static final String COLOR = "color";
+    public static final String NOTE = "note";
 
     private static final Random random = new Random();
 

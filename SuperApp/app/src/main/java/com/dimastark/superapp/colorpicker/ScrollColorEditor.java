@@ -5,7 +5,7 @@ import android.os.Vibrator;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
-import com.dimastark.superapp.App;
+import com.dimastark.superapp.application.App;
 import com.dimastark.superapp.models.Color;
 import com.dimastark.superapp.models.ColorBlock;
 

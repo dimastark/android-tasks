@@ -21,25 +21,6 @@ public class FavoriteColorsAdapter extends ArrayAdapter<Color> {
         this.context = context;
     }
 
-    static class ViewHolder {
-        ImageView imageView;
-        Color color;
-
-        ViewHolder(View forView) {
-            imageView = forView.findViewById(R.id.image_view);
-        }
-
-        void fill(Color color) {
-            this.color = color;
-            GradientDrawable drawable = (GradientDrawable) imageView.getDrawable();
-            drawable.setColor(color.asInt());
-        }
-
-        Color getColor() {
-            return color;
-        }
-    }
-
     @NonNull @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         View view;
@@ -57,5 +38,24 @@ public class FavoriteColorsAdapter extends ArrayAdapter<Color> {
         holder.fill(getItem(position));
 
         return view;
+    }
+
+    static class ViewHolder {
+        ImageView imageView;
+        Color color;
+
+        ViewHolder(View forView) {
+            imageView = forView.findViewById(R.id.image_view);
+        }
+
+        void fill(Color color) {
+            this.color = color;
+            GradientDrawable drawable = (GradientDrawable) imageView.getDrawable();
+            drawable.setColor(color.asInt());
+        }
+
+        Color getColor() {
+            return color;
+        }
     }
 }

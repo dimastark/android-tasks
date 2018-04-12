@@ -6,4 +6,8 @@
     <string name="save_button_text">Save</string>
     <string name="color">Color</string>
     <string name="color_text">Color</string>
+    <string name="feed">Лента</string>
+    <string name="fav_colors">Избранные цвета</string>
+    <string name="settings">Настройки</string>
+    <string name="about">О приложении</string>
 </resources>
